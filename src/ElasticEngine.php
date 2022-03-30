@@ -151,6 +151,12 @@ class ElasticEngine extends Engine
 
                 $payload->setIfNotEmpty($clauseKey, $clauseValue);
             }
+            
+            $settings = $builder->model->getSearchSettings();
+            foreach ($settings as $setting => $value) {
+                $settingKey = 'body.'.$setting;
+                $payload->setIfNotEmpty($settingKey, $value);
+            }
 
             return $payload->get();
         });
