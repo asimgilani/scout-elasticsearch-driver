@@ -72,6 +72,13 @@ trait Searchable
         return isset($this->searchRules) && count($this->searchRules) > 0 ?
             $this->searchRules : [SearchRule::class];
     }
+    
+    public function getSearchSettings()
+    {
+        return isset($this->searchSettings) && count($this->searchSettings) > 0 ?
+            $this->searchSettings : [];
+    }
+    
 
     /**
      * Execute the search.
